@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <title>prio Video Clipper</title>
+  <meta charset="UTF-8">
+  <title>Online Video Clipper</title>
 
-  <!-- Tailwind CDN (aman buat gratisan) -->
+  <!-- Tailwind (warning boleh diabaikan) -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
 
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
   <div class="bg-white p-6 rounded shadow w-full max-w-md">
-    <h1 class="text-2xl font-bold mb-2">Online Video Clipper</h1>
+    <h1 class="text-2xl font-bold mb-2">prio Video Clipper</h1>
     <p class="text-sm text-gray-600 mb-4">
       Potong video gratis langsung di browser.<br>
       Semua proses di device kamu.
@@ -19,23 +19,22 @@
     <input id="video" type="file" accept="video/*" class="mb-3 w-full">
 
     <div class="flex gap-2 mb-3">
-      <input id="start" type="text" value="00:00:05" class="border p-2 w-1/2" placeholder="Start (00:00:05)">
-      <input id="end" type="text" value="00:00:15" class="border p-2 w-1/2" placeholder="End (00:00:15)">
+      <input id="start" value="00:00:05" class="border p-2 w-1/2">
+      <input id="end" value="00:00:15" class="border p-2 w-1/2">
     </div>
 
-    <button
-      id="clip"
-      class="bg-blue-600 text-white w-full py-2 rounded hover:bg-blue-700">
+    <button id="clip" class="bg-blue-600 text-white w-full py-2 rounded">
       Clip Video
     </button>
 
-    <p id="status" class="text-sm mt-3 text-gray-700"></p>
+    <p id="status" class="text-sm mt-3"></p>
   </div>
 
-  <!-- FFmpeg WASM (GLOBAL, STABIL) -->
-  <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.11.6/dist/ffmpeg.min.js"></script>
+  <!-- ⚠️ FFmpeg GLOBAL BUILD (INI YANG PENTING) -->
+  <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.10.1/dist/ffmpeg.min.js"></script>
 
-  <!-- APP SCRIPT -->
+  <!-- APP -->
   <script src="app.js"></script>
 </body>
 </html>
+
