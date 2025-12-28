@@ -1,7 +1,6 @@
-import { createFFmpeg, fetchFile } from
-  "https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.6/dist/ffmpeg.min.js";
+const { createFFmpeg, fetchFile } = FFmpeg;
 
-const ffmpeg = createFFmpeg({ log: false });
+const ffmpeg = createFFmpeg({ log: true });
 const btn = document.getElementById("clip");
 const status = document.getElementById("status");
 
@@ -15,12 +14,12 @@ btn.onclick = async () => {
     return;
   }
 
-  status.innerText = "Loading engine...";
+  status.innerText = "Loading FFmpeg engine (tunggu ya)...";
   if (!ffmpeg.isLoaded()) await ffmpeg.load();
 
   ffmpeg.FS("writeFile", "input.mp4", await fetchFile(file));
 
-  status.innerText = "Processing...";
+  status.innerText = "Processing video...";
   await ffmpeg.run(
     "-i", "input.mp4",
     "-ss", start,
@@ -39,5 +38,5 @@ btn.onclick = async () => {
   a.download = "clip.mp4";
   a.click();
 
-  status.innerText = "Selesai ✔";
+  status.innerText = "Selesai ✔ Video ter-download";
 };
